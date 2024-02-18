@@ -1,26 +1,3 @@
-################################################################################
-# Assignment #2 Factory Pattern Starter Code
-#
-# Starter code for Assignment #2...
-#
-# The Open Weather Map API allows to to request the weather for a given city:
-#   - Documentation: https://openweathermap.org/api
-# In order to use this API, we do need to create an account to obtain an API
-# key: https://home.openweathermap.org/users/sign_in.  And it does take a few
-# minutes for the API key to start working after we've signed up for it...
-#
-# This API also has a "wrapper", a Python module that makes accessing the API
-# easier for us... rather than manually making and sending requests, we
-# can call functions that do this for us and just return the results.
-#  - Wrapper documentation: https://github.com/csparpa/pyowm
-#
-# See the WebAPI Examples on Avenue for an example of using this wrapper!
-#
-# To install a Python module locally to make it available in your own solutions,
-# you generally need to use pip3:
-#    pip3 install pylast
-#
-
 # import the open weather data wrapper module
 from pyowm import OWM
 owm = OWM('38e787bc0a0a5c1c55f1c5723ac60301')
