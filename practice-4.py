@@ -18,7 +18,8 @@ class Handler(ABC):
     def handle_request(self, message, priority):
         if priority >= self._priority:
             self.write_file(message)
-        else:
+
+        if self._next_handler:
             self._next_handler.handle_request(message, priority)
 
     @abstractmethod
@@ -31,14 +32,14 @@ class FileHandler(Handler):
             file.write(message + '\n')
 
 #            
-handler1 = FileHandler('log.txt', 1)
-handler2 = FileHandler('log.txt', 2)
-handler3 = FileHandler('log.txt', 3)
+handler1 = FileHandler('lowPriorityLogs.txt', 1)
+handler2 = FileHandler('mediumPriorityLogs.txt', 2)
+handler3 = FileHandler('highPriorityLogs.txt', 3)
 
 # Chain the handlers
 handler1.set_next_handler(handler2)
 handler2.set_next_handler(handler3)
 
-handler1.handle_request('high priority', 3)
-handler1.handle_request('low priority', 1)
-handler1.handle_request('medium priority', 2)
+handler1.handle_request('task occured high priority', 3)
+handler1.handle_request('task occured low priority', 1)
+handler1.handle_request('task occured medium priority', 2)
