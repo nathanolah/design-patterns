@@ -40,6 +40,7 @@ handler3 = FileHandler('highPriorityLogs.txt', 3)
 handler1.set_next_handler(handler2)
 handler2.set_next_handler(handler3)
 
+#
 handler1.handle_request('task occured high priority', 3)
 handler1.handle_request('task occured low priority', 1)
 handler1.handle_request('task occured medium priority', 2)
